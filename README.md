@@ -1,3 +1,6 @@
+#bootstrap-chessboard
+cm-chessboard needs a fixed height. In a bootstrap col you dont have a fixed height. This version sets the height of the chessboard dependent from the width. 
+
 # cm-chessboard
 
 A Lightweight, ES6 module based, responsive, mobile friendly SVG chessboard with almost no dependencies (no jQuery needed). It works on desktop (current versions of Chrome, Firefox, Safari, Edge),
