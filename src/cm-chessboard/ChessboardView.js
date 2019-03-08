@@ -115,7 +115,8 @@ export class ChessboardView {
         this.markersGroup = Svg.addElement(this.svg, "g", {class: "markers"})
         this.piecesGroup = Svg.addElement(this.svg, "g", {class: "pieces"})
         /* Update the height according to the width */
-        this.svg.setAttribute("height", this.chessboard.view.height +"px");
+        var chessboardHeight = this.chessboard.view.height;
+        this.svg.setAttribute("height", chessboardHeight+"px");
     }
 
     updateMetrics() {
