@@ -307,6 +307,7 @@ export class ChessboardMoveInput {
                     this.setMoveInputState(STATE.clickTo, {index: index})
                 } else if (this.moveInputState === STATE.secondClickThreshold) {
                     this.setMoveInputState(STATE.reset)
+                    console.log('cancel')
                     this.moveCanceledCallback()
                 }
             } else {
