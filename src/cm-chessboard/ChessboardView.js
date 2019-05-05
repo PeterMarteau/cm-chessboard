@@ -431,7 +431,8 @@ export class ChessboardView {
         if (this.chessboard.moveInputCallback) {
             this.chessboard.moveInputCallback({
                 chessboard: this.chessboard,
-                type: INPUT_EVENT_TYPE.moveCanceled
+                type: INPUT_EVENT_TYPE.moveCanceled,
+                square: SQUARE_COORDINATES[index]
             })
         }
     }
