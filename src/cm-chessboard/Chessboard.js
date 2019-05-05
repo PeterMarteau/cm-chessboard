@@ -78,6 +78,8 @@ export class Chessboard {
                     this.state.setPosition(FEN_START_POSITION)
                 } else if (this.props.position === "empty" || this.props.position === null) {
                     this.state.setPosition(FEN_EMPTY_POSITION)
+                } else if (this.props.position === "alice") {
+                    this.state.setPosition(FEN_ALICE_POSITION)
                 } else {
                     this.state.setPosition(this.props.position)
                 }
@@ -125,6 +127,8 @@ export class Chessboard {
                         this.state.setPosition(FEN_START_POSITION)
                     } else if (fen === "empty" || fen === null) {
                         this.state.setPosition(FEN_EMPTY_POSITION)
+                    } else if (fen === "alice" || fen === null) {
+                        this.state.setPosition(FEN_ALICE_POSITION)    
                     } else {
                         this.state.setPosition(fen)
                     }
