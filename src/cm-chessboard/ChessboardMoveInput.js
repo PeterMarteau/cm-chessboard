@@ -308,12 +308,12 @@ export class ChessboardMoveInput {
                 } else if (this.moveInputState === STATE.secondClickThreshold) {
                     this.setMoveInputState(STATE.reset)
                     console.log('cancel')
-                    this.moveCanceledCallback()
+                    this.moveCanceledCallback(index)
                 }
             } else {
                 this.view.drawPiecesDebounced()
                 this.setMoveInputState(STATE.reset)
-                this.moveCanceledCallback()
+                this.moveCanceledCallback(index)
             }
         } else {
             this.view.drawPiecesDebounced()
