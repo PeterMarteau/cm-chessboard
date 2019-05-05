@@ -16,6 +16,17 @@ const SPRITE_LOADING_STATUS = {
     loaded: 3
 }
 
+export const COORDINATES_X_TEXT = {
+    0: 'QR',
+    1: 'QN',
+    2: 'QB',
+    3: 'Q',
+    4: 'K',
+    5: 'KB',
+    6: 'KN',
+    7: 'KR',
+}
+
 export class ChessboardView {
 
     constructor(chessboard, callbackAfterCreation) {
@@ -219,13 +230,24 @@ export class ChessboardView {
                 style: `font-size: ${this.scalingY * 8}px`
             })
             if (this.chessboard.state.orientation === COLOR.white) {
-                textElement.textContent = String.fromCharCode(97 + file)
+                if (this.chessboard.props.coordinates === "oldStyle") {
+                    textElement.textContent = COORDINATES_X_TEXT[file];
+                }
+                else {
+                    textElement.textContent = String.fromCharCode(97 + file)
+                }
             } else {
-                textElement.textContent = String.fromCharCode(104 - file)
+                if (this.chessboard.props.coordinates === "oldStyle") {
+                    textElement.textContent = COORDINATES_X_TEXT[file];
+                }
+                else {
+                    textElement.textContent = String.fromCharCode(104 - file)
+                }
             }
         }
         for (let rank = 0; rank < 8; rank++) {
             let x = (this.borderSize / 3.7)
+            let xInverse = (this.width  -this.scalingY * 8)
             let y = this.borderSize + 24 * this.scalingY + rank * this.squareHeight
             let cssClass = "coordinate rank"
             if (inline) {
@@ -244,10 +266,20 @@ export class ChessboardView {
                 y: y,
                 style: `font-size: ${this.scalingY * 8}px`
             })
+           const textElementInverse = Svg.addElement(this.coordinatesGroup, "text", {
+                class: cssClass,
+                x: xInverse,
+                y: y,
+                style: `font-size: ${this.scalingY * 8}px`
+            })
             if (this.chessboard.state.orientation === COLOR.white) {
                 textElement.textContent = 8 - rank
+                textElementInverse.textContent = 1 + rank
+
             } else {
                 textElement.textContent = 1 + rank
+                textElementInverse.textContent = 8 - rank
+
             }
         }
     }
