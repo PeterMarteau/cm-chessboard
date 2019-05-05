@@ -42,6 +42,7 @@ export const PIECE = {
 }
 export const FEN_START_POSITION = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 export const FEN_EMPTY_POSITION = "8/8/8/8/8/8/8/8"
+export const FEN_ALICE_POSITION = "6n1/8/2K5/5N2/4k3/8/3Pq3/2Q2R2"
 
 const DEFAULT_SPRITE_GRID = 40
 
